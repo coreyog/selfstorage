@@ -41,6 +41,11 @@ func main() {
 
 		raw = append(raw, buf.Bytes()...)
 
+		err = os.Remove(path)
+		if err != nil {
+			panic(err)
+		}
+
 		err = os.WriteFile(path, raw, nfo.Mode())
 		if err != nil {
 			panic(err)
@@ -66,6 +71,11 @@ func main() {
 		}
 
 		raw = append(raw, buf.Bytes()...)
+
+		err = os.Remove(path)
+		if err != nil {
+			panic(err)
+		}
 
 		err = os.WriteFile(path, raw, nfo.Mode())
 		if err != nil {
